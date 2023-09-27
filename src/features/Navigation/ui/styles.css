@@ -1,0 +1,16 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 0 var(--unit-xs);
+}
+
+.navigation__item {
+    color: var(--color-gray-700);
+    padding: var(--unit-2xs) var(--unit-xs);
+    border-radius: var(--base-border-radius);
+}
+
+.navigation__item:hover,
+.navigation__item.active{
+    background-color: var(--color-gray-100);
+}
