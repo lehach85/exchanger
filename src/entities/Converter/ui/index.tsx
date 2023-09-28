@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {currenciesArray} from "@/shared/config";
 import './styles.css'
-import {CurrencyInput} from "@/entities/CurrencyInput/ui";
+import {CurrencyInput} from "@/shared/ui/CurrencyInput";
 import {getRates} from "@/shared/api/Rates";
 import {formatPrice} from "@/shared/utils/formatPrice"
 
@@ -22,8 +22,12 @@ export const Converter = () => {
 
 
     const handleAmount1Change = (amount1) => {
-        setAmount2(formatPrice(amount1 * ratesList[currency2] / ratesList[currency1]))
-        setAmount1(amount1)
+        if (amount1 < 0) {
+            setAmount1(1)
+        } else {
+            setAmount2(formatPrice(amount1 * ratesList[currency2] / ratesList[currency1]))
+            setAmount1(amount1)
+        }
     }
 
     const handleCurrency1Change = (currency1) => {
@@ -32,8 +36,12 @@ export const Converter = () => {
     }
 
     const handleAmount2Change = (amount2) => {
-        setAmount1(formatPrice(amount2 * ratesList[currency1] / ratesList[currency2]))
-        setAmount2(amount2)
+        if (amount2 < 0) {
+            setAmount2(1)
+        } else {
+            setAmount1(formatPrice(amount2 * ratesList[currency1] / ratesList[currency2]))
+            setAmount2(amount2)
+        }
     }
     const handleCurrency2Change = (currency1) => {
         setAmount1(formatPrice(amount2 * ratesList[currency1] / ratesList[currency2]))
@@ -57,6 +65,5 @@ export const Converter = () => {
                 onCurrencyChange={handleCurrency2Change}
             />
         </div>
-
     );
 }

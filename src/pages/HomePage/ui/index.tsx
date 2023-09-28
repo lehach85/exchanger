@@ -6,7 +6,7 @@ export const HomePage = () => {
     return (
         <>
             <Header/>
-            <PageTitle title="Курсы валют на сегодня"/>
+            <PageTitle title="Текущие курсы валют"/>
             <ExchangeRates/>
         </>
     );

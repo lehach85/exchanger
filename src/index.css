@@ -17,6 +17,7 @@
   --unit-10xl: calc( var(--unit-base) * 14);
 
   /* COLORS SCHEME */
+  --color-gray-0: #ffffff;
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
@@ -59,6 +60,12 @@
   -webkit-text-size-adjust: 100%;
   --base-border-radius: var(--unit-xs);
   --base-border-color: var(--color-gray-300);
+
+  /* Buttons */
+  --button-bg: var(--color-sky-500);
+  --button-hover-bg: var(--color-sky-600);
+  --button-border-color: var(--button-bg);
+  --button-text-color: var(--color-gray-0);
 }
 
 body {
@@ -138,4 +145,28 @@ select {
   height: var(--unit-6xl);
   border-radius: var(--base-border-radius);
   padding: 0 var(--unit-md);
+}
+
+select {
+  background-image: url("shared/assets/arrow.svg");
+  background-position: right 6px top 50%;
+  background-repeat: no-repeat;
+  padding-right: var(--unit-4xl);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+button {
+  cursor: pointer;
+  border-radius: var(--base-border-radius);
+  border: var(--button-border-color) 1px solid;
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  font-size: 16px;
+  line-height: 1.5;
+  padding: var(--unit-2xs) var(--unit-sm);
+}
+button:hover {
+  background-color: var(--button-hover-bg);
+  border-color: var(--button-hover-bg);
 }

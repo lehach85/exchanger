@@ -3,9 +3,29 @@ import HighchartsReact from 'highcharts-react-official'
 import {useEffect, useState} from "react";
 
 import {currencies, foreignCurrenciesArray} from "@/shared/config";
-import {CurrencySelector} from "@/entities/CurrencySelector";
+import {CurrencySelector} from "@/shared/ui/CurrencySelector";
 
 import {getHistoricalRates} from "@/shared/api/HistoricalRates";
+
+// Russian localization options
+Highcharts.setOptions({
+    lang: {
+        loading: 'Загрузка...',
+        months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+        shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
+        exportButtonTitle: "Экспорт",
+        printButtonTitle: "Печать",
+        rangeSelectorFrom: "С",
+        rangeSelectorTo: "По",
+        rangeSelectorZoom: "Период",
+        downloadPNG: 'Скачать PNG',
+        downloadJPEG: 'Скачать JPEG',
+        downloadPDF: 'Скачать PDF',
+        downloadSVG: 'Скачать SVG',
+        printChart: 'Напечатать график'
+    }
+});
 
 export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState('USD');
@@ -16,6 +36,9 @@ export const RatesChart = () => {
     const options = {
         title: {
             text: `График изменения курса за ${daysLimit} дней`
+        },
+        accessibility: {
+            enabled: false
         },
         yAxis: {
             title: {
@@ -35,7 +58,7 @@ export const RatesChart = () => {
             data:
                 chartData
             },
-        ]
+        ],
     }
 
     useEffect( () => {

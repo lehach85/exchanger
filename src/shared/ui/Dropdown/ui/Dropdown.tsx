@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './dropdown.css';
+import './style.css';
 
 interface IDropdownProps {
   button: React.ReactNode;
   children: React.ReactNode;
-  isOpen?: boolean; // for control
+  isOpen?: boolean;
   onOpen?: () => void;
   onClose?: () => void;
 }
@@ -23,14 +23,14 @@ export function Dropdown({button, children, isOpen, onOpen = NOOP, onClose = NOO
   }
 
   return (
-      <div className={styles.dropdownContainer}>
-        <div onClick={ handleOpen }>
+      <div className="dropdown-container">
+        <div onClick={ handleOpen } className={isDropdownOpen ? 'opened' : 'closed'}>
           { button }
         </div>
 
         {isDropdownOpen && (
-            <div className={styles.listContainter}>
-              <div className={styles.list} onClick={() => setIsDropdownOpen(false)}>
+            <div className="dropdown-box">
+              <div className="dropdown-list" onClick={() => setIsDropdownOpen(false)}>
                 {children}
               </div>
             </div>

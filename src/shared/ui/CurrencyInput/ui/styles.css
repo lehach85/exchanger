@@ -5,8 +5,11 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0;
+    outline: none;
 }
 .currency-input__currency-symbol {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    background-color: var(--color-gray-100);
+    outline: none;
 }

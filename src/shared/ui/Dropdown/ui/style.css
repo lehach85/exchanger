@@ -1,0 +1,14 @@
+.dropdown-container {
+    width: 100%;
+    flex: 1 1 0%;
+    position: relative;
+}
+
+.dropdown-list {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: var(--base-border-radius);
+    background-color: var(--color-gray-0);
+}
