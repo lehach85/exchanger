@@ -10,8 +10,6 @@ export const getRates = async (fsym: string, tsyms: string[]) => {
         tsyms: tsyms.filter((currency) => currency !== fsym).join(),
     }
 
-    console.log(params);
-
     try {
         const response = await apiInstance.get(BASE_URL, { params });
         return response;

@@ -7,8 +7,3 @@ export const apiInstance = axios.create({
     timeout: REQUEST_TIMEOUT,
 });
 
-export function getCurrenciesList() {
-    return fetch('https://min-api.cryptocompare.com/data/price?fsym=RUB&tsyms=USD,EUR,TRY')
-}
-
-

@@ -69,6 +69,10 @@ body {
   color: var(--color-gray-700);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: var(--color-sky-500);
@@ -122,4 +126,16 @@ h1 {
 .table-head-cell {
   background-color: var(--color-gray-100);
   font-weight: 700;
+}
+
+/* FORMS */
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=password],
+select {
+  border: var(--base-border-color) solid 1px;
+  height: var(--unit-6xl);
+  border-radius: var(--base-border-radius);
+  padding: 0 var(--unit-md);
 }

@@ -1,4 +1,4 @@
-import { Navigation  } from "@/features/Navigation";
+import {Navigation} from "@/features/Navigation";
 import {Logo} from "@/shared/ui/Logo/ui";
 import './styles.css';
 

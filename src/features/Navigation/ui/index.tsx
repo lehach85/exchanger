@@ -12,18 +12,18 @@ export const Navigation = () => {
                 Главная
             </NavLink>
             <NavLink
+                to="/chart"
+                activeсlassname="navigation__item--state--active"
+                className="navigation__item"
+            >
+                График валют
+            </NavLink>
+            <NavLink
                 to="/converter"
                 activeсlassname="navigation__item--state--active"
                 className="navigation__item"
             >
                 Конвертор валют
-            </NavLink>
-            <NavLink
-                to="/charts"
-                activeсlassname="navigation__item--state--active"
-                className="navigation__item"
-            >
-                График валют
             </NavLink>
         </div>
     );

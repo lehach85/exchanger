@@ -1,0 +1,12 @@
+.currency-input {
+    display: flex;
+}
+.currency-input__amount[type=number]{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+}
+.currency-input__currency-symbol {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

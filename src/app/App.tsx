@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import './App.css'
 import {Router} from "@/pages";
-import ErrorBoundary from "@/shared/ErrorBoundary"
+// import ErrorBoundary from "@/shared/ErrorBoundary"
 
 function App() {
   // const [count, setCount] = useState(0)

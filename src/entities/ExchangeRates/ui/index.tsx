@@ -1,15 +1,13 @@
 import {useEffect, useState} from "react";
-import {currencies} from "@/shared/config";
+import {currencies, currenciesArray} from "@/shared/config";
 import './styles.css'
 import {getRates} from "@/shared/api/Rates";
 
 export const ExchangeRates = () => {
     const [ratesList, setRatesList] = useState();
 
-    const currenciesList = Object.keys(currencies);
-
     useEffect(()=> {
-        getRates('RUB', currenciesList)
+        getRates('RUB', currenciesArray)
             .then((res) => setRatesList(res.data));
     },[]);
 

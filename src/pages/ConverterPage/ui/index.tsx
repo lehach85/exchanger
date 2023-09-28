@@ -1,5 +1,6 @@
 import {Header} from "@/widgets/Header";
-import {PageTitle} from "@/widgets/PageTitle/ui";
+import {PageTitle} from "@/widgets/PageTitle";
+import {Converter} from "@/entities/Converter";
 
 //
 export const ConverterPage = () => {
@@ -7,6 +8,7 @@ export const ConverterPage = () => {
         <>
             <Header/>
             <PageTitle title="Конвертор валют" />
+            <Converter/>
         </>
     );
 };
