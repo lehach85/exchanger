@@ -1,3 +1,4 @@
 .page-title {
     margin-bottom: var(--unit-2xl);
+    text-wrap: balance;
 }

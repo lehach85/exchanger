@@ -3,5 +3,5 @@
     justify-content: space-between;
     align-items: center;
     gap: var(--unit-xs);
-    padding: var(--unit-xs);
+    padding: var(--unit-md) 0;
 }
