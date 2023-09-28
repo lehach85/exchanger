@@ -19,7 +19,7 @@ export const RatesChart = () => {
         },
         yAxis: {
             title: {
-                text: 'Стоимость в рублях'
+                text: currencies['RUB'].ru_title,
             },
         },
         xAxis: {

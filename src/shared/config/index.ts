@@ -3,8 +3,6 @@ export { ROUTE_CONSTANTS } from "./routes";
 
 export const REQUEST_TIMEOUT = 8000;
 
-('RUB' | 'USD' | 'EUR' )
-
 export const currencies = {
     'RUB': {
         ru_title: 'Российсий рубль',
