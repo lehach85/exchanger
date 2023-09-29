@@ -6,6 +6,7 @@ import {currencies, foreignCurrenciesArray} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
 
 import {getHistoricalRates} from "@/shared/api/HistoricalRates";
+import {TChartData, THistoricalRatesItem} from "@/shared/types";
 
 // Russian localization options
 Highcharts.setOptions({
@@ -16,8 +17,6 @@ Highcharts.setOptions({
         shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
     }
 });
-
-type TChartData = Record<number, number>
 
 export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
@@ -57,7 +56,7 @@ export const RatesChart = () => {
         getHistoricalRates(currencyFrom, currencyTo, daysLimit)
             .then((res) => {
                 const dataByDays = res.data.Data.Data;
-                const newChartData = dataByDays.map((item:any) => [item.time*1000, item.close]);
+                const newChartData = dataByDays.map((item: THistoricalRatesItem) => [item.time*1000, item.close] );
                 setChartData(newChartData);
             });
     },[currencyFrom]);
