@@ -9,7 +9,9 @@ interface ICurrencies {
     };
 }
 
-export const currencies: ICurrencies = {
+type TCurrencies = Record<string, Record<string, string>>
+
+export const currencies: TCurrencies = {
     'RUB': {
         ru_title: 'Российсий рубль',
         symbol: '₽'

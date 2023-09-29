@@ -1,26 +1,23 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {currenciesArray} from "@/shared/config";
 import './styles.css'
 import {CurrencyInput} from "@/shared/ui/CurrencyInput";
 import {getRates} from "@/shared/api/Rates";
 import {formatPrice} from "@/shared/utils/formatPrice"
+import {TRatesList} from "@/shared/types"
 
-type TRatesList = {
-    [N: string]: number;
-}
-
-export const Converter = () => {
+export const Converter: React.FC  = () => {
     const [ratesList, setRatesList] = useState<TRatesList>();
 
     const [amount1, setAmount1] = useState<number>(1);
     const [amount2, setAmount2] = useState<number>(1);
+
     const [currency1, setCurrency1] = useState<string>('USD');
     const [currency2, setCurrency2] = useState<string>('RUB');
 
     useEffect(() => {
         getRates('RUB', currenciesArray, true)
             .then((res) => {
-                console.log(res.data)
                 setRatesList(res.data)
             });
     },[]);

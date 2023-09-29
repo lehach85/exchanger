@@ -1,6 +1,6 @@
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {currencies, foreignCurrenciesArray} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
@@ -27,11 +27,13 @@ Highcharts.setOptions({
     }
 });
 
-export const RatesChart = () => {
-    const [currencyFrom, setCurrencyFrom] = useState('USD');
-    const [currencyTo] = useState('RUB');
-    const [daysLimit] = useState(10);
-    const [chartData, setChartData] = useState()
+type TChartData = Record<number, number>
+
+export const RatesChart: React.FC = () => {
+    const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
+    const [currencyTo] = useState<string>('RUB');
+    const [daysLimit] = useState<number>(10);
+    const [chartData, setChartData] = useState<TChartData>()
 
     const options = {
         title: {
@@ -64,7 +66,6 @@ export const RatesChart = () => {
     useEffect( () => {
         getHistoricalRates(currencyFrom, currencyTo, daysLimit)
             .then((res) => {
-                // console.log(res.data.Data.Data);
                 const dataByDays = res.data.Data.Data;
                 const newChartData = dataByDays.map((item) => [item.time*1000, item.close]);
                 setChartData(newChartData);
