@@ -1,4 +1,4 @@
-import {FC, Suspense, lazy} from "react";
+import {FC, Suspense} from "react";
 
 import {ROUTE_CONSTANTS} from "@/shared/config";
 import {Route, Routes, BrowserRouter, Navigate} from "react-router-dom";

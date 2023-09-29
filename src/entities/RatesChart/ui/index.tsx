@@ -14,16 +14,6 @@ Highcharts.setOptions({
         months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
         shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
-        exportButtonTitle: "Экспорт",
-        printButtonTitle: "Печать",
-        rangeSelectorFrom: "С",
-        rangeSelectorTo: "По",
-        rangeSelectorZoom: "Период",
-        downloadPNG: 'Скачать PNG',
-        downloadJPEG: 'Скачать JPEG',
-        downloadPDF: 'Скачать PDF',
-        downloadSVG: 'Скачать SVG',
-        printChart: 'Напечатать график'
     }
 });
 
@@ -67,7 +57,7 @@ export const RatesChart = () => {
         getHistoricalRates(currencyFrom, currencyTo, daysLimit)
             .then((res) => {
                 const dataByDays = res.data.Data.Data;
-                const newChartData = dataByDays.map((item) => [item.time*1000, item.close]);
+                const newChartData = dataByDays.map((item: any) => {[item.time*1000, item.close]; console.log(item)});
                 setChartData(newChartData);
             });
     },[currencyFrom]);
@@ -82,7 +72,7 @@ export const RatesChart = () => {
                 Ниже представлена таблица курса&nbsp;
                 <CurrencySelector
                     currencies={foreignCurrenciesArray}
-                    currencySymbol={currencyFrom}
+                    // currencySymbol={currencyFrom}
                     onCurrencyChange={handleCurrencyChange}
                 /> к рублю
             </p>

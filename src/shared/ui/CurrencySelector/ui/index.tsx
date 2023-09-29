@@ -8,7 +8,7 @@ type CurrencySelectorProps = {
 export const CurrencySelector: React.FC<CurrencySelectorProps> =
     ({
       currencies,
-      onCurrencyChange
+      onCurrencyChange,
     }) => {
     return (
         <select className="currency-selector" onChange={(event) => {onCurrencyChange(event.target.value)}}>

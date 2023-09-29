@@ -46,7 +46,7 @@ export const Converter = () => {
         }
         setAmount2(amount2)
     }
-    const handleCurrency2Change = (currency1: number): void => {
+    const handleCurrency2Change = (currency1: string): void => {
         if (ratesList) {
             setAmount1(calcRate(amount2, ratesList[currency1], ratesList[currency2]))
         }

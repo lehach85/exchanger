@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import './styles.css';
-import {Dropdown} from "@/shared/ui/Dropdown/ui/Dropdown";
+import { Dropdown } from "@/shared/ui/Dropdown";
 
 export const MobileNavigation  = () => {
     return (
@@ -11,21 +11,18 @@ export const MobileNavigation  = () => {
                 <div className="mobile-navigation__items">
                     <NavLink
                         to="/"
-                        activeсlassname="mobile-navigation__items"
                         className="mobile-navigation__item"
                     >
                         Главная
                     </NavLink>
                     <NavLink
                         to="/chart"
-                        activeсlassname="mobile-navigation__item--state--active"
                         className="mobile-navigation__item"
                     >
                         График валют
                     </NavLink>
                     <NavLink
                         to="/converter"
-                        activeсlassname="mobile-navigation__item--state--active"
                         className="mobile-navigation__item"
                     >
                         Конвертор валют
