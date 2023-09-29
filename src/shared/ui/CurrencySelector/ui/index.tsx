@@ -5,7 +5,11 @@ type CurrencySelectorProps = {
     onCurrencyChange: (value: string) => void
 }
 
-export const CurrencySelector: React.FC = ({currencies, onCurrencyChange}: CurrencySelectorProps) => {
+export const CurrencySelector: React.FC<CurrencySelectorProps> =
+    ({
+      currencies,
+      onCurrencyChange
+    }) => {
     return (
         <select className="currency-selector" onChange={(event) => {onCurrencyChange(event.target.value)}}>
             {currencies.map((currency) => (

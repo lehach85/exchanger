@@ -1,15 +1,16 @@
+import {TCurrencyDetails} from "@/shared/types";
+
 export const API_URL = "https://min-api.cryptocompare.com";
 export { ROUTE_CONSTANTS } from "./routes";
 
 export const REQUEST_TIMEOUT = 8000;
 
-interface ICurrencies {
-    readonly [N: string]: {
-        readonly [N: string]
-    };
+type TCurrencyDetails = {
+    ru_title: string,
+    symbol: string,
 }
 
-type TCurrencies = Record<string, Record<string, string>>
+type TCurrencies = Record<string, TCurrencyDetails>
 
 export const currencies: TCurrencies = {
     'RUB': {
@@ -45,7 +46,7 @@ export const currenciesArray: Array<string> = Object.keys(currencies);
 // Get foreign currencies list (removing ruble)
 const copiedCurrencies = Object.assign({}, currencies);
 delete copiedCurrencies.RUB;
-export const foreignCurrencies: ICurrencies  = copiedCurrencies;
+export const foreignCurrencies: TCurrencies  = copiedCurrencies;
 
 // Get an array of foreign currencies keys(['RUB'],['USD']...)
 const copiedForeignCurrencies = Object.assign({}, currencies);

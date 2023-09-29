@@ -1,8 +1,7 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import './styles.css';
 
-export const Navigation: React.FC = () => {
+export const Navigation = () => {
     return (
         <div className="navigation">
             <NavLink

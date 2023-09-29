@@ -1,9 +1,8 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import './styles.css';
 import {Dropdown} from "@/shared/ui/Dropdown/ui/Dropdown";
 
-export const MobileNavigation: React.FC  = () => {
+export const MobileNavigation  = () => {
     return (
         <div className="mobile-navigation">
             <Dropdown button={

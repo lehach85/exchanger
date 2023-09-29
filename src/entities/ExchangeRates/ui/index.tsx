@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {currencies, currenciesArray} from "@/shared/config";
 import './styles.css'
 import {getRates} from "@/shared/api/Rates";
 import {TRatesList} from "@/shared/types"
 
-export const ExchangeRates: React.FC = () => {
+export const ExchangeRates = () => {
     const [ratesList, setRatesList] = useState<TRatesList>();
 
     useEffect(()=> {

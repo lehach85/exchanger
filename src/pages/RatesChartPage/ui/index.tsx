@@ -1,9 +1,8 @@
 import {Header} from "@/widgets/Header";
 import {PageTitle} from "@/widgets/PageTitle";
 import {RatesChart} from "@/entities/RatesChart";
-import React from "react";
 
-export const RatesChartPage: React.FC = () => {
+export const RatesChartPage = () => {
     return (
         <>
             <Header/>

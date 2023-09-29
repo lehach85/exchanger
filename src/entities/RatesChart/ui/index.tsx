@@ -1,6 +1,6 @@
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 import {currencies, foreignCurrenciesArray} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
@@ -29,7 +29,7 @@ Highcharts.setOptions({
 
 type TChartData = Record<number, number>
 
-export const RatesChart: React.FC = () => {
+export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
     const [currencyTo] = useState<string>('RUB');
     const [daysLimit] = useState<number>(10);
@@ -72,7 +72,7 @@ export const RatesChart: React.FC = () => {
             });
     },[currencyFrom]);
 
-    const handleCurrencyChange = (value: string) :void => {
+    const handleCurrencyChange = (value: string): void => {
         setCurrencyFrom(value);
     }
 

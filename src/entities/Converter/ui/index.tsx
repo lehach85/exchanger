@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {currenciesArray} from "@/shared/config";
 import './styles.css'
 import {CurrencyInput} from "@/shared/ui/CurrencyInput";
@@ -6,7 +6,7 @@ import {getRates} from "@/shared/api/Rates";
 import {formatPrice} from "@/shared/utils/formatPrice"
 import {TRatesList} from "@/shared/types"
 
-export const Converter: React.FC  = () => {
+export const Converter = () => {
     const [ratesList, setRatesList] = useState<TRatesList>();
 
     const [amount1, setAmount1] = useState<number>(1);
