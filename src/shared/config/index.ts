@@ -3,7 +3,13 @@ export { ROUTE_CONSTANTS } from "./routes";
 
 export const REQUEST_TIMEOUT = 8000;
 
-export const currencies = {
+interface ICurrencies {
+    readonly [N: string]: {
+        readonly [N: string]
+    };
+}
+
+export const currencies: ICurrencies = {
     'RUB': {
         ru_title: 'Российсий рубль',
         symbol: '₽'
@@ -31,15 +37,15 @@ export const currencies = {
     }
 }
 
-// Get an array (['RUB'],['USD']...)
+// Get an array of currencies keys (['RUB'],['USD']...)
 export const currenciesArray: Array<string> = Object.keys(currencies);
 
 // Get foreign currencies list (removing ruble)
 const copiedCurrencies = Object.assign({}, currencies);
 delete copiedCurrencies.RUB;
-export const foreignCurrencies = copiedCurrencies;
+export const foreignCurrencies: ICurrencies  = copiedCurrencies;
 
-// Get an array (['RUB'],['USD']...)
+// Get an array of foreign currencies keys(['RUB'],['USD']...)
 const copiedForeignCurrencies = Object.assign({}, currencies);
 delete copiedForeignCurrencies.RUB;
 export const foreignCurrenciesArray: Array<string> = Object.keys(copiedForeignCurrencies);
