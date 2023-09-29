@@ -8,7 +8,7 @@ export const ExchangeRates = () => {
 
     useEffect(()=> {
         getRates('RUB', currenciesArray)
-            .then((res) => setRatesList(res.data));
+            .then((res) => { setRatesList(res.data); console.log('MOUNT')} );
     },[]);
 
     return (

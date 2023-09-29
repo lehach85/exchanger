@@ -71,7 +71,7 @@ export const RatesChart = () => {
             });
     },[currencyFrom]);
 
-    const handleCurrencyChange = (value) => {
+    const handleCurrencyChange = (value: string) :void => {
         setCurrencyFrom(value);
     }
 

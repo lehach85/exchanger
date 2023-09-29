@@ -4,7 +4,6 @@ type CurrencySelectorProps = {
 }
 
 export const CurrencySelector = ({currencies, onCurrencyChange}: CurrencySelectorProps) => {
-
     return (
         <select className="currency-selector" onChange={(event) => {onCurrencyChange(event.target.value)}}>
             {currencies.map((currency) => (

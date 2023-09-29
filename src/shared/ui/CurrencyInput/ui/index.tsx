@@ -4,7 +4,7 @@ type CurrencyInputProps = {
     amount: number,
     currencies: string[],
     currencySymbol: string,
-    onAmountChange: (value: string) => void,
+    onAmountChange: (value: number) => void,
     onCurrencyChange: (value: string) => void,
 }
 
@@ -16,7 +16,7 @@ export const CurrencyInput = ({amount, currencies, currencySymbol, onAmountChang
                className="currency-input__amount"
                type="number"
                value={amount}
-               onChange={(event) => {onAmountChange(event.target.value)}}
+               onChange={(event) => {onAmountChange(event.target.valueAsNumber)}}
             />
             <select
                 className="currency-input__currency-symbol"

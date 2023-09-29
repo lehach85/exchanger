@@ -20,5 +20,6 @@
 - TS 5.0.2
 - React 18.2.0
 - React router 6.16.0
-- Архитектура FSD
-- API: https://min-api.cryptocompare.com/documentation
+- Архитектура по методологии FSD (https://feature-sliced.design/ru/docs)
+- Highcharts (11.1.0) & highcharts-react-official (3.2.1)
+- API для получения валют: https://min-api.cryptocompare.com/documentation
