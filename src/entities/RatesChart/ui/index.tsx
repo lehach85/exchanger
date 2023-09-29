@@ -57,7 +57,7 @@ export const RatesChart = () => {
         getHistoricalRates(currencyFrom, currencyTo, daysLimit)
             .then((res) => {
                 const dataByDays = res.data.Data.Data;
-                const newChartData = dataByDays.map((item: any) => {[item.time*1000, item.close]; console.log(item)});
+                const newChartData = dataByDays.map((item:any) => [item.time*1000, item.close]);
                 setChartData(newChartData);
             });
     },[currencyFrom]);
@@ -72,7 +72,6 @@ export const RatesChart = () => {
                 Ниже представлена таблица курса&nbsp;
                 <CurrencySelector
                     currencies={foreignCurrenciesArray}
-                    // currencySymbol={currencyFrom}
                     onCurrencyChange={handleCurrencyChange}
                 /> к рублю
             </p>
