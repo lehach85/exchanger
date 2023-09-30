@@ -1,6 +1,6 @@
 import {Header} from "@/widgets/Header";
 import {PageTitle} from "@/widgets/PageTitle";
-import {Converter} from "@/entities/Converter";
+import {Converter} from "@/features/Converter";
 
 export const ConverterPage = () => {
     return (
