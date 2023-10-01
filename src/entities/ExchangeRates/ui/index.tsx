@@ -1,7 +1,7 @@
 import {currencies} from "@/shared/config";
 import './styles.css'
 import {TRatesList} from "@/shared/types"
-import {useGetRatesData} from "./hooks/"
+import {useGetRatesData} from "../model/hooks"
 
 export const ExchangeRates = () => {
     const [ratesList] = useGetRatesData<TRatesList>();
