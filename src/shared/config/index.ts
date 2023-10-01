@@ -47,3 +47,13 @@ export const foreignCurrencies: TCurrencies  = copiedCurrencies;
 const copiedForeignCurrencies = Object.assign({}, currencies);
 delete copiedForeignCurrencies.RUB;
 export const foreignCurrenciesArray: Array<string> = Object.keys(copiedForeignCurrencies);
+
+// Russian localization for HighChart module
+export const highChartRuOptions = {
+    lang: {
+        loading: 'Загрузка...',
+        months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+        shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
+    }
+}

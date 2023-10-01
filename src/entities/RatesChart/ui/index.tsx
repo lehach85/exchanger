@@ -2,21 +2,14 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import {useEffect, useState} from "react";
 
-import {currencies, foreignCurrenciesArray} from "@/shared/config";
+import {currencies, foreignCurrenciesArray, highChartRuOptions} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
 
 import {getHistoricalRates} from "@/shared/api/HistoricalRates";
 import {TChartData, THistoricalRatesItem} from "@/shared/types";
 
 // Russian localization options
-Highcharts.setOptions({
-    lang: {
-        loading: 'Загрузка...',
-        months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-        weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-        shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
-    }
-});
+Highcharts.setOptions(highChartRuOptions);
 
 export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
