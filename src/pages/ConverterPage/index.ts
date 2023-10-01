@@ -1,1 +1,3 @@
-export { ConverterPage } from "./ui";
+import ConverterPage from  "./ui";
+
+export default ConverterPage

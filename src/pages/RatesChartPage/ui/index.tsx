@@ -2,7 +2,7 @@ import {Header} from "@/widgets/Header";
 import {PageTitle} from "@/widgets/PageTitle";
 import {RatesChart} from "@/entities/RatesChart";
 
-export const RatesChartPage = () => {
+const RatesChartPage = () => {
     return (
         <>
             <Header/>
@@ -11,3 +11,5 @@ export const RatesChartPage = () => {
         </>
     );
 };
+
+export default RatesChartPage;

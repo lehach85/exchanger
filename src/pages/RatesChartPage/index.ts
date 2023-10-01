@@ -1,1 +1,3 @@
-export { RatesChartPage } from "./ui";
+import RatesChartPage from "./ui";
+
+export default RatesChartPage;
