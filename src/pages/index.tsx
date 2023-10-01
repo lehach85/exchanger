@@ -10,17 +10,17 @@ export const Router: FC = () => (
     <BrowserRouter>
         <Routes>
             <Route path={ROUTE_CONSTANTS.HOME} element={
-                <React.Suspense fallback={<>Загрузка...</>}>
+                <React.Suspense fallback={<p>Загрузка...</p>}>
                     <HomePage/>
                 </React.Suspense>
             }/>
             <Route path={ROUTE_CONSTANTS.CONVERTER} element={
-                <React.Suspense fallback={<>Загрузка...</>}>
+                <React.Suspense fallback={<p>Загрузка...</p>}>
                     <ConverterPage/>
                 </React.Suspense>}
             />
             <Route path={ROUTE_CONSTANTS.RATES_CHART} element={
-                <React.Suspense fallback={<>Загрузка...</>}>
+                <React.Suspense fallback={<p>Загрузка...</p>}>
                     <RatesChartPage/>
                 </React.Suspense>}
             />
