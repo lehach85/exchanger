@@ -1,16 +1,10 @@
-import {useEffect, useState} from "react";
-import {currencies, currenciesArray} from "@/shared/config";
+import {currencies} from "@/shared/config";
 import './styles.css'
-import {getRates} from "@/shared/api/Rates";
 import {TRatesList} from "@/shared/types"
+import {useGetRatesData} from "./hooks/"
 
 export const ExchangeRates = () => {
-    const [ratesList, setRatesList] = useState<TRatesList>();
-
-    useEffect(()=> {
-        getRates('RUB', currenciesArray)
-            .then((res) => { setRatesList(res.data);} );
-    },[]);
+    const [ratesList] = useGetRatesData<TRatesList>();
 
     return (
         <div className="table exchange-rates-table">
@@ -32,6 +26,5 @@ export const ExchangeRates = () => {
                 }
             )}
         </div>
-
     );
 }
