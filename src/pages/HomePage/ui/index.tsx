@@ -1,13 +1,17 @@
 import {Header} from "@/widgets/Header";
-import {ExchangeRates} from "@/entities/ExchangeRates/ui";
-import {PageTitle} from "@/widgets/PageTitle/ui";
+import {ExchangeRates} from "@/entities/ExchangeRates";
+import {PageTitle} from "@/widgets/PageTitle";
+import {Footer} from "@/widgets/Footer";
 
 const HomePage = () => {
     return (
         <>
             <Header/>
-            <PageTitle title="Текущие курсы валют"/>
-            <ExchangeRates/>
+            <main>
+                <PageTitle title="Текущие курсы валют"/>
+                <ExchangeRates/>
+            </main>
+            <Footer />
         </>
     );
 };
