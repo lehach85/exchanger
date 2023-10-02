@@ -1,9 +1,6 @@
 import './styles.css';
 import React from "react";
-
-type TPageTitleProps = {
-    title: string;
-}
+import {TPageTitleProps} from '../model/types'
 
 export const PageTitle: React.FC<TPageTitleProps> = ({title}) => {
     return (
