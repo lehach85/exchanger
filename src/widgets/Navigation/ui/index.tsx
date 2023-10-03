@@ -3,7 +3,7 @@ import './styles.css';
 
 export const Navigation = () => {
     return (
-        <div className="navigation">
+        <nav className="navigation">
             <NavLink
                 to="/"
                 className="navigation__item"
@@ -22,6 +22,6 @@ export const Navigation = () => {
             >
                 Конвертор валют
             </NavLink>
-        </div>
+        </nav>
     );
 };
