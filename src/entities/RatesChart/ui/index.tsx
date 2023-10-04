@@ -61,7 +61,7 @@ export const RatesChart = () => {
     return (
         <div className="currency-chart">
             <p className="page-description">
-                Ниже представлена таблица курса&nbsp;
+                Ниже представлен график курса&nbsp;
                 <CurrencySelector
                     currencies={foreignCurrenciesArray}
                     onCurrencyChange={handleCurrencyChange}
