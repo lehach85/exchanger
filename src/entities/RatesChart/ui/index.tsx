@@ -2,11 +2,12 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import {useEffect, useState} from "react";
 
-import {currencies, foreignCurrenciesArray, highChartRuOptions} from "@/shared/config";
+import {currencies, foreignCurrenciesArray, highChartRuOptions, ratesChartDays} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
 
 import {getHistoricalRates, prepareHistoricalDataForChart} from "@/shared/api/HistoricalRates";
 import {TChartData} from "@/shared/types";
+import {DaysSelector} from "@/shared/ui/DaysSelector/ui";
 
 // Russian localization options
 Highcharts.setOptions(highChartRuOptions);
@@ -14,7 +15,7 @@ Highcharts.setOptions(highChartRuOptions);
 export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
     const [currencyTo] = useState<string>('RUB');
-    const [daysLimit] = useState<number>(10);
+    const [daysLimit, setDaysLimit] = useState<number>(10);
     const [chartData, setChartData] = useState<TChartData>()
 
     const options = {
@@ -50,10 +51,14 @@ export const RatesChart = () => {
             .then((res) => {
                 setChartData(prepareHistoricalDataForChart(res.data));
             });
-    },[currencyFrom]);
+    },[currencyFrom, daysLimit]);
 
     const handleCurrencyChange = (value: string): void => {
         setCurrencyFrom(value);
+    }
+
+    const handleLimitChange = (value: number): void => {
+        setDaysLimit(value);
     }
 
     return (
@@ -69,6 +74,7 @@ export const RatesChart = () => {
                 highcharts={Highcharts}
                 options={options}
             />
+            <DaysSelector onLimitChange={handleLimitChange} daysLimit={daysLimit} />
         </div>
     );
 };

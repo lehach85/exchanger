@@ -57,3 +57,6 @@ export const highChartRuOptions = {
         shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
     }
 }
+
+// Days periods for RatesChart
+export const ratesChartDaysValues = [10, 15, 20, 25, 30]

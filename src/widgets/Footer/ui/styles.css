@@ -3,4 +3,5 @@
    border-top: var(--base-border-color) 1px solid;
    padding: var(--unit-md) 0;
    font-size: var(--font-size-small);
+   margin-top: var(--unit-3xl);
 }

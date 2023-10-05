@@ -51,7 +51,8 @@
   /* GENERAL STYLES */
   --font-size-base: 16px;
   --font-size-small: var(--unit-sm);
-  --font-color: var(--color-gray-700);
+  --text-color: var(--color-gray-700);
+  --text-color-inverse: var(--color-gray-0);
   --font-secondary-color: var(--color-gray-500);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -78,7 +79,7 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: var(--font-color);
+  color: var(--text-color);
 }
 
 .secondary-text {

@@ -1,9 +1,5 @@
 import React from "react";
-
-type CurrencySelectorProps = {
-    currencies: string[],
-    onCurrencyChange: (value: string) => void
-}
+import {CurrencySelectorProps} from '../model/types'
 
 export const CurrencySelector: React.FC<CurrencySelectorProps> =
     ({

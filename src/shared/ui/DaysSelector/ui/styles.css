@@ -1,0 +1,28 @@
+/*
+    Days selector
+*/
+.days-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--unit-sm);
+    margin-top: var(--unit-sm);
+}
+
+.days-selector__item {
+    background-color: var(--color-gray-100);
+    border-radius: var(--base-border-radius);
+    padding: var(--unit-xs) var(--unit-md);
+    cursor: pointer;
+}
+
+.days-selector__item:hover {
+    background-color: var(--color-gray-200);
+}
+
+.days-selector__item--state--active,
+.days-selector__item--state--active:hover {
+    background-color: var(--color-sky-500);
+    color: var(--button-text-color);
+    cursor: default;
+}
