@@ -15,7 +15,7 @@ export const getHistoricalRates = async (fsym: string, tsym: string, limit: numb
     const params = {
         fsym: fsym,
         tsym: tsym,
-        limit: limit
+        limit: limit - 1 // API feature
     }
 
     try {

@@ -69,7 +69,9 @@ export const RatesChart = () => {
                     <CurrencySelector
                         currencies={foreignCurrenciesArray}
                         onCurrencyChange={handleCurrencyChange}
-                    /></p>
+                    />&nbsp;
+                    Выбрать интересующий вас период в днях вы можете под графиком валюты.
+                </p>
             </div>
             <HighchartsReact
                 highcharts={Highcharts}
