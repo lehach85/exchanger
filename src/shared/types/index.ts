@@ -8,7 +8,8 @@ export type TCurrencyDetails = {
 }
 
 //  Date format for chart table
-export type TChartData = Record<number, number>
+export type TChartData = number[][];
+
 
 // Historical rate item format (date from API)
 export type THistoricalRatesItem = {
@@ -21,4 +22,22 @@ export type THistoricalRatesItem = {
     time: number,
     volumefrom: number,
     volumeto: number
+}
+
+export type THistoricalRatesItems = [THistoricalRatesItem]
+
+// Historical rates response Data
+export type THistoricalRatesData = {
+    Data: THistoricalRatesInnerData,
+    HasWarning: boolean,
+    RateLimit: object,
+    Response: string,
+    Type: number
+}
+
+export type THistoricalRatesInnerData = {
+    Aggregated: boolean
+    Data: THistoricalRatesItems,
+    TimeFrom: number,
+    TimeTo: number
 }

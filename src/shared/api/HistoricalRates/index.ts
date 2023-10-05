@@ -1,8 +1,7 @@
 import {apiInstance} from "@/shared/api/base";
+import {THistoricalRatesData, THistoricalRatesItem, TChartData} from "@/shared/types";
 
 // Base URL for current price
-// params
-
 const BASE_URL = "/data/v2/histoday";
 
 /**
@@ -25,4 +24,9 @@ export const getHistoricalRates = async (fsym: string, tsym: string, limit: numb
     } catch (error) {
         throw error;
     }
+}
+
+export const prepareHistoricalDataForChart = (data: THistoricalRatesData): TChartData => {
+    const dataByDays = data.Data.Data;
+    return dataByDays.map((item: THistoricalRatesItem) => [item.time*1000, item.close] );
 }

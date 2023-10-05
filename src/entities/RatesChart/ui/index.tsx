@@ -5,8 +5,8 @@ import {useEffect, useState} from "react";
 import {currencies, foreignCurrenciesArray, highChartRuOptions} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
 
-import {getHistoricalRates} from "@/shared/api/HistoricalRates";
-import {TChartData, THistoricalRatesItem} from "@/shared/types";
+import {getHistoricalRates, prepareHistoricalDataForChart} from "@/shared/api/HistoricalRates";
+import {TChartData} from "@/shared/types";
 
 // Russian localization options
 Highcharts.setOptions(highChartRuOptions);
@@ -48,9 +48,7 @@ export const RatesChart = () => {
     useEffect( () => {
         getHistoricalRates(currencyFrom, currencyTo, daysLimit)
             .then((res) => {
-                const dataByDays = res.data.Data.Data;
-                const newChartData = dataByDays.map((item: THistoricalRatesItem) => [item.time*1000, item.close] );
-                setChartData(newChartData);
+                setChartData(prepareHistoricalDataForChart(res.data));
             });
     },[currencyFrom]);
 
