@@ -19,7 +19,7 @@ export const MobileNavigation  = () => {
                         to="/chart"
                         className="mobile-navigation__item"
                     >
-                        График валют
+                        Графики валют
                     </NavLink>
                     <NavLink
                         to="/converter"

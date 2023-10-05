@@ -9,9 +9,6 @@ import {getHistoricalRates, prepareHistoricalDataForChart} from "@/shared/api/Hi
 import {TChartData} from "@/shared/types";
 import {DaysSelector} from "@/shared/ui/DaysSelector/ui";
 
-// Russian localization options
-Highcharts.setOptions(highChartRuOptions);
-
 export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
     const [currencyTo] = useState<string>('RUB');
@@ -20,8 +17,9 @@ export const RatesChart = () => {
 
     const options = {
         title: {
-            text: `График изменения курса за ${daysLimit} дней`
+            text: `График изменения курса ${currencyFrom} (${currencies[currencyFrom].ru_title}) к рублю за ${daysLimit} дней`
         },
+        className: "currency-chart__chart",
         accessibility: {
             enabled: false
         },
@@ -46,6 +44,9 @@ export const RatesChart = () => {
         ],
     }
 
+    // Russian localization options
+    Highcharts.setOptions(highChartRuOptions);
+
     useEffect( () => {
         getHistoricalRates(currencyFrom, currencyTo, daysLimit)
             .then((res) => {
@@ -63,13 +64,13 @@ export const RatesChart = () => {
 
     return (
         <div className="currency-chart">
-            <p className="page-description">
-                Ниже представлен график курса&nbsp;
-                <CurrencySelector
-                    currencies={foreignCurrenciesArray}
-                    onCurrencyChange={handleCurrencyChange}
-                /> к рублю
-            </p>
+            <div className="currency-chart__description">
+                <p>Выберете интересующую вас валюту&nbsp;
+                    <CurrencySelector
+                        currencies={foreignCurrenciesArray}
+                        onCurrencyChange={handleCurrencyChange}
+                    /></p>
+            </div>
             <HighchartsReact
                 highcharts={Highcharts}
                 options={options}

@@ -1,4 +1,5 @@
 .page-description {
     margin-top: var(--unit-2xl);
     margin-bottom: var(--unit-2xl);
+    text-align: justify;
 }
