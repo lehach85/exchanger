@@ -1,4 +1,4 @@
 export type DaysSelectorProps = {
     daysLimit: number,
-    handleLimitChange: (value: number) => void
+    onLimitChange: (value: number) => void
 }

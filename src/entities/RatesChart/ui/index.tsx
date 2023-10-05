@@ -2,7 +2,7 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import {useEffect, useState} from "react";
 
-import {currencies, foreignCurrenciesArray, highChartRuOptions, ratesChartDays} from "@/shared/config";
+import {currencies, foreignCurrenciesArray, highChartRuOptions} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
 
 import {getHistoricalRates, prepareHistoricalDataForChart} from "@/shared/api/HistoricalRates";
@@ -15,7 +15,7 @@ Highcharts.setOptions(highChartRuOptions);
 export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
     const [currencyTo] = useState<string>('RUB');
-    const [daysLimit, setDaysLimit] = useState<number>(10);
+    const [daysLimit, setDaysLimit] = useState<number>(15);
     const [chartData, setChartData] = useState<TChartData>()
 
     const options = {

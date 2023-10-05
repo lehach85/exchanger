@@ -59,4 +59,4 @@ export const highChartRuOptions = {
 }
 
 // Days periods for RatesChart
-export const ratesChartDaysValues = [10, 15, 20, 25, 30]
+export const ratesChartDaysValues = [5, 10, 15, 20, 25, 30]
