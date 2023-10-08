@@ -5,9 +5,9 @@ export { ROUTE_CONSTANTS } from "./routes";
 
 export const REQUEST_TIMEOUT = 8000;
 
-type TCurrencies = Record<string, TCurrencyDetails>
+type CurrenciesType = Record<string, TCurrencyDetails>
 
-export const currencies: TCurrencies = {
+export const currencies: CurrenciesType = {
     'RUB': {
         ru_title: 'Российсий рубль',
         symbol: '₽'
