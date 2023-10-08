@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 import {currenciesArray} from "@/shared/config";
 import {getRates} from "@/shared/api/Rates";
-import {TRatesList} from "@/shared/types";
+import {RatesListType} from "@/shared/types";
 
 export const useGetRatesData = () => {
-    const [ratesData, setRatesData] = useState<TRatesList>();
+    const [ratesData, setRatesData] = useState<RatesListType>();
 
     useEffect(() => {
         getRates('RUB', currenciesArray)

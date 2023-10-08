@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
 import {currenciesArray} from "@/shared/config";
-import './styles.css'
 import {CurrencyInput} from "@/shared/ui/CurrencyInput";
 import {getRates} from "@/shared/api/Rates";
-import {formatPrice} from "@/shared/utils/formatPrice"
-import {TRatesList} from "@/shared/types"
+import {RatesListType} from "@/shared/types"
+import {calcRate} from "@/shared/utils/calcRate";
+import './styles.css'
 
 export const Converter = () => {
-    const [ratesList, setRatesList] = useState<TRatesList>();
+    const [ratesList, setRatesList] = useState<RatesListType>();
 
     const [amount1, setAmount1] = useState<number>(1);
     const [amount2, setAmount2] = useState<number>(1);
@@ -21,10 +21,6 @@ export const Converter = () => {
                 setRatesList(res.data)
             });
     },[]);
-
-    const calcRate = (amount:number, rate1: number, rate2: number): number => {
-        return formatPrice(amount * (rate1 / rate2));
-    }
 
     const handleAmount1Change = (amount1: number): void => {
         if (ratesList) {

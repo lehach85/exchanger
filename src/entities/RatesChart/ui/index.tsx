@@ -6,14 +6,14 @@ import {currencies, foreignCurrenciesArray, highChartRuOptions} from "@/shared/c
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
 
 import {getHistoricalRates, prepareHistoricalDataForChart} from "@/shared/api/HistoricalRates";
-import {TChartData} from "@/shared/types";
+import {ChartDataType} from "@/shared/types";
 import {DaysSelector} from "@/shared/ui/DaysSelector/ui";
 
 export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
     const [currencyTo] = useState<string>('RUB');
     const [daysLimit, setDaysLimit] = useState<number>(15);
-    const [chartData, setChartData] = useState<TChartData>()
+    const [chartData, setChartData] = useState<ChartDataType>()
 
     const options = {
         title: {

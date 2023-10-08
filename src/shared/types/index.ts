@@ -1,5 +1,5 @@
 // Rates list type
-export type TRatesList = Record<string, number>;
+export type RatesListType = Record<string, number>;
 
 // Currency details (ru_title, symbol)
 export type TCurrencyDetails = {
@@ -7,12 +7,15 @@ export type TCurrencyDetails = {
     symbol: string,
 }
 
+// Currencies list
+export type CurrenciesType = Record<string, TCurrencyDetails>
+
 //  Date format for chart table
-export type TChartData = number[][];
+export type ChartDataType = number[][];
 
 
 // Historical rate item format (date from API)
-export type THistoricalRatesItem = {
+export type HistoricalRatesItemType = {
     close: number,
     conversionSymbol: string,
     conversionType: string,
@@ -24,20 +27,20 @@ export type THistoricalRatesItem = {
     volumeto: number
 }
 
-export type THistoricalRatesItems = [THistoricalRatesItem]
+export type HistoricalRatesItemTypes = [HistoricalRatesItemType]
 
 // Historical rates response Data
-export type THistoricalRatesData = {
-    Data: THistoricalRatesInnerData,
+export type HistoricalRatesDataType = {
+    Data: HistoricalRatesInnerDataType,
     HasWarning: boolean,
     RateLimit: object,
     Response: string,
     Type: number
 }
 
-export type THistoricalRatesInnerData = {
+export type HistoricalRatesInnerDataType = {
     Aggregated: boolean
-    Data: THistoricalRatesItems,
+    Data: HistoricalRatesItemTypes,
     TimeFrom: number,
     TimeTo: number
 }
