@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {currenciesArray} from "@/shared/config";
 import {CurrencyInput} from "@/shared/ui/CurrencyInput";
-import {RatesListType} from "@/shared/types"
 import {calcRate} from "@/shared/utils/calcRate/";
 import './styles.css'
 import {useRatesData} from "@/shared/hooks/useRatesData";
@@ -13,7 +12,7 @@ export const Converter = () => {
     const [currency1, setCurrency1] = useState<string>('USD');
     const [currency2, setCurrency2] = useState<string>('RUB');
 
-    const [ratesList] = useRatesData<RatesListType>(currency2, currenciesArray, true);
+    const [ratesList] = useRatesData(currency2, currenciesArray, true);
 
     const handleAmount1Change = (amount1: number): void => {
         if (ratesList) {
