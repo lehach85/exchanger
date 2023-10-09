@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {ChartDataType} from "@/shared/types";
 import {getHistoricalRates, prepareHistoricalDataForChart} from "@/shared/api/HistoricalRates";
 
-export const useHistoricalRatesData = (currencyFrom: string, currencyTo: string, daysLimit: number) => {
+export const useHistoricalRatesData = (currencyFrom: string, currencyTo: string, daysLimit: number)  => {
     const [chartData, setChartData] = useState<ChartDataType>();
 
     useEffect( () => {
