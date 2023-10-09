@@ -1,26 +1,26 @@
 import {useEffect, useState} from "react";
 import {currenciesArray} from "@/shared/config";
 import {CurrencyInput} from "@/shared/ui/CurrencyInput";
-import {getRates} from "@/shared/api/Rates";
 import {RatesListType} from "@/shared/types"
-import {calcRate} from "@/shared/utils/calcRate";
+import {calcRate} from "@/shared/utils/calcRate/";
 import './styles.css'
+import {useRatesData} from "@/shared/hooks/useRatesData";
 
 export const Converter = () => {
-    const [ratesList, setRatesList] = useState<RatesListType>();
-
     const [amount1, setAmount1] = useState<number>(1);
     const [amount2, setAmount2] = useState<number>(1);
 
     const [currency1, setCurrency1] = useState<string>('USD');
     const [currency2, setCurrency2] = useState<string>('RUB');
 
-    useEffect(() => {
-        getRates('RUB', currenciesArray, true)
-            .then((res) => {
-                setRatesList(res.data)
-            });
-    },[]);
+    const [ratesList] = useRatesData<RatesListType>(currency2, currenciesArray, true);
+
+    // useEffect(() => {
+    //     getRates('RUB', currenciesArray, true)
+    //         .then((res) => {
+    //             setRatesList(res.data)
+    //         });
+    // },[]);
 
     const handleAmount1Change = (amount1: number): void => {
         if (ratesList) {
@@ -42,7 +42,7 @@ export const Converter = () => {
         }
         setAmount2(amount2)
     }
-    const handleCurrency2Change = (currency1: string): void => {
+    const handleCurrency2Change = (currency2: string): void => {
         if (ratesList) {
             setAmount1(calcRate(amount2, ratesList[currency1], ratesList[currency2]))
         }
@@ -51,6 +51,7 @@ export const Converter = () => {
 
     return (
         <div className="converter">
+            {currency1}
             <CurrencyInput
                 currencies={currenciesArray}
                 amount={amount1}
@@ -58,6 +59,7 @@ export const Converter = () => {
                 onAmountChange={handleAmount1Change}
                 onCurrencyChange={handleCurrency1Change}
             />
+            {currency2}
             <CurrencyInput
                 currencies={currenciesArray}
                 amount={amount2}

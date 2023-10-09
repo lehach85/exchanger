@@ -1,9 +1,9 @@
-import {currencies} from "@/shared/config";
+import {currencies, currenciesArray} from "@/shared/config";
 import './styles.css'
-import {useGetRatesData} from "../model/hooks"
+import {useRatesData} from "@/shared/hooks/useRatesData"
 
 export const ExchangeRates = () => {
-    const [ratesList] = useGetRatesData();
+    const [ratesData] = useRatesData('RUB', currenciesArray);
 
     return (
         <div className="table exchange-rates-table">
@@ -13,13 +13,13 @@ export const ExchangeRates = () => {
                 <div className="table-head-cell">Валюта</div>
                 <div className="table-head-cell">Курс</div>
             </div>
-            { ratesList && Object.keys(ratesList).map((key) => {
+            { ratesData && Object.keys(ratesData).map((key) => {
                     return (
                         <div className="table-row" key={key}>
                             <div className="table-cell px-4">{key}</div>
                             <div className="table-cell">1</div>
                             <div className="table-cell">{currencies[key].ru_title}</div>
-                            <div className="table-cell">{ (1 / ratesList[key]).toFixed(2) }</div>
+                            <div className="table-cell">{ (1 / ratesData[key]).toFixed(2) }</div>
                         </div>
                     )
                 }

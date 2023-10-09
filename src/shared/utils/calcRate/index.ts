@@ -1,0 +1,1 @@
+export {calcRate} from "@/shared/utils/calcRate/calcRate";
