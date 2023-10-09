@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {currenciesArray} from "@/shared/config";
 import {CurrencyInput} from "@/shared/ui/CurrencyInput";
 import {RatesListType} from "@/shared/types"
@@ -14,13 +14,6 @@ export const Converter = () => {
     const [currency2, setCurrency2] = useState<string>('RUB');
 
     const [ratesList] = useRatesData<RatesListType>(currency2, currenciesArray, true);
-
-    // useEffect(() => {
-    //     getRates('RUB', currenciesArray, true)
-    //         .then((res) => {
-    //             setRatesList(res.data)
-    //         });
-    // },[]);
 
     const handleAmount1Change = (amount1: number): void => {
         if (ratesList) {
@@ -51,7 +44,6 @@ export const Converter = () => {
 
     return (
         <div className="converter">
-            {currency1}
             <CurrencyInput
                 currencies={currenciesArray}
                 amount={amount1}
@@ -59,7 +51,6 @@ export const Converter = () => {
                 onAmountChange={handleAmount1Change}
                 onCurrencyChange={handleCurrency1Change}
             />
-            {currency2}
             <CurrencyInput
                 currencies={currenciesArray}
                 amount={amount2}
