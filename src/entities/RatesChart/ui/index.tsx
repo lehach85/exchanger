@@ -1,19 +1,19 @@
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 import {currencies, foreignCurrenciesArray, highChartRuOptions} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
 
-import {getHistoricalRates, prepareHistoricalDataForChart} from "@/shared/api/HistoricalRates";
-import {ChartDataType} from "@/shared/types";
 import {DaysSelector} from "@/shared/ui/DaysSelector/ui";
+import {useHistoricalRatesData} from "@/shared/hooks/useHistoricalRatesData";
 
 export const RatesChart = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
     const [currencyTo] = useState<string>('RUB');
     const [daysLimit, setDaysLimit] = useState<number>(15);
-    const [chartData, setChartData] = useState<ChartDataType>()
+
+    const [chartData] = useHistoricalRatesData(currencyFrom, currencyTo, daysLimit);
 
     const options = {
         title: {
@@ -47,12 +47,12 @@ export const RatesChart = () => {
     // Russian localization options
     Highcharts.setOptions(highChartRuOptions);
 
-    useEffect( () => {
-        getHistoricalRates(currencyFrom, currencyTo, daysLimit)
-            .then((res) => {
-                setChartData(prepareHistoricalDataForChart(res.data));
-            });
-    },[currencyFrom, daysLimit]);
+    // useEffect( () => {
+    //     getHistoricalRates(currencyFrom, currencyTo, daysLimit)
+    //         .then((res) => {
+    //             setChartData(prepareHistoricalDataForChart(res.data));
+    //         });
+    // },[currencyFrom, daysLimit]);
 
     const handleCurrencyChange = (value: string): void => {
         setCurrencyFrom(value);
