@@ -4,8 +4,8 @@ import {useState} from "react";
 
 import {foreignCurrenciesArray, highChartRuOptions} from "@/shared/config";
 import {CurrencySelector} from "@/shared/ui/CurrencySelector";
-
 import {DaysSelector} from "@/shared/ui/DaysSelector/ui";
+
 import {useHistoricalRatesData} from "@/shared/hooks/useHistoricalRatesData";
 import {prepareChartOptions} from "@/entities/RatesChart/model/prepareChartOptions";
 

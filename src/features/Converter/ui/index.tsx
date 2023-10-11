@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {currenciesArray} from "@/shared/config";
 import {CurrencyInput} from "@/shared/ui/CurrencyInput";
 import {calcRate} from "@/shared/utils/calcRate/";
@@ -6,56 +6,63 @@ import './styles.css'
 import {useRatesData} from "@/shared/hooks/useRatesData";
 
 export const Converter = () => {
-    const [amount1, setAmount1] = useState<number>(1);
-    const [amount2, setAmount2] = useState<number>(1);
+    const [amountFirst, setAmountFirst] = useState<number>(1);
+    const [amountSecond, setAmountSecond] = useState<number>(1);
 
-    const [currency1, setCurrency1] = useState<string>('USD');
-    const [currency2, setCurrency2] = useState<string>('RUB');
+    const [currencytFirst, setCurrencyFirst] = useState<string>('USD');
+    const [currencySecond, setCurrencySecond] = useState<string>('RUB');
 
-    const [ratesList] = useRatesData(currency2, currenciesArray, true);
+    const [ratesList] = useRatesData(currencySecond, currenciesArray, true);
 
-    const handleAmount1Change = (amount1: number): void => {
-        if (ratesList) {
-            setAmount2(calcRate(amount1, ratesList[currency2], ratesList[currency1]))
+    useEffect(() => {
+        if (!!ratesList) {
+            handleAmountFirstChange(amountFirst);
         }
-        setAmount1(amount1)
+    },[ratesList])
+
+    const handleAmountFirstChange = (amountFirst: number): void => {
+        if (ratesList) {
+            setAmountSecond(calcRate(amountFirst, ratesList[currencySecond], ratesList[currencytFirst]))
+        }
+        setAmountFirst(amountFirst)
     }
 
-    const handleCurrency1Change = (currency1: string): void => {
+    const handleCurrencyFirstChange = (currencytFirst: string): void => {
         if (ratesList) {
-            setAmount2(calcRate(amount1, ratesList[currency2], ratesList[currency1]))
+            setAmountSecond(calcRate(amountFirst, ratesList[currencySecond], ratesList[currencytFirst]))
         }
-        setCurrency1(currency1);
+        setCurrencyFirst(currencytFirst);
     }
 
-    const handleAmount2Change = (amount2: number): void => {
+    const handleAmountSecondChange = (amountSecond: number): void => {
         if (ratesList) {
-            setAmount1(calcRate(amount2, ratesList[currency1], ratesList[currency2]))
+            setAmountFirst(calcRate(amountSecond, ratesList[currencytFirst], ratesList[currencySecond]))
         }
-        setAmount2(amount2)
+        setAmountSecond(amountSecond)
     }
-    const handleCurrency2Change = (currency2: string): void => {
+    
+    const handleCurrencySecondChange = (currencySecond: string): void => {
         if (ratesList) {
-            setAmount1(calcRate(amount2, ratesList[currency1], ratesList[currency2]))
+            setAmountFirst(calcRate(amountSecond, ratesList[currencytFirst], ratesList[currencySecond]))
         }
-        setCurrency2(currency2);
+        setCurrencySecond(currencySecond);
     }
 
     return (
         <div className="converter">
             <CurrencyInput
                 currencies={currenciesArray}
-                amount={amount1}
-                currencySymbol={currency1}
-                onAmountChange={handleAmount1Change}
-                onCurrencyChange={handleCurrency1Change}
+                amount={amountFirst}
+                currencySymbol={currencytFirst}
+                onAmountChange={handleAmountFirstChange}
+                onCurrencyChange={handleCurrencyFirstChange}
             />
             <CurrencyInput
                 currencies={currenciesArray}
-                amount={amount2}
-                currencySymbol={currency2}
-                onAmountChange={handleAmount2Change}
-                onCurrencyChange={handleCurrency2Change}
+                amount={amountSecond}
+                currencySymbol={currencySecond}
+                onAmountChange={handleAmountSecondChange}
+                onCurrencyChange={handleCurrencySecondChange}
             />
         </div>
     );
