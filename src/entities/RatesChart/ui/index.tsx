@@ -43,13 +43,13 @@ export const RatesChart = () => {
                     Выбрать интересующий вас период в днях вы можете под графиком валюты.
                 </p>
             </div>
-            { isShowChart
+            { isShowChart()
                 && <HighchartsReact
                     highcharts={Highcharts}
                     options={options}
                 />
             }
-            { isShowChart &&
+            { isShowChart() &&
                 <DaysSelector onLimitChange={handleLimitChange} daysLimit={daysLimit} />
             }
         </div>
