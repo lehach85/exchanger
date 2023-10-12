@@ -1,12 +1,5 @@
 import './styles.css';
-
-type CurrencyInputProps = {
-    amount: number,
-    currencies: string[],
-    currencySymbol: string,
-    onAmountChange: (value: number) => void,
-    onCurrencyChange: (value: string) => void,
-}
+import {CurrencyInputProps} from '../model/types'
 
 export const CurrencyInput = ({amount, currencies, currencySymbol, onAmountChange, onCurrencyChange}: CurrencyInputProps) => {
 

@@ -6,14 +6,16 @@ import './styles.css'
 import {useRatesData} from "@/shared/hooks/useRatesData";
 
 export const Converter = () => {
+    // TODO: replace with reducer or combine handlers
     const [amountFirst, setAmountFirst] = useState<number>(1);
     const [amountSecond, setAmountSecond] = useState<number>(1);
 
-    const [currencytFirst, setCurrencyFirst] = useState<string>('USD');
+    const [currencyFirst, setCurrencyFirst] = useState<string>('USD');
     const [currencySecond, setCurrencySecond] = useState<string>('RUB');
 
     const [ratesList] = useRatesData(currencySecond, currenciesArray, true);
 
+    // Calculate rates for initial state
     useEffect(() => {
         if (!!ratesList) {
             handleAmountFirstChange(amountFirst);
@@ -22,28 +24,28 @@ export const Converter = () => {
 
     const handleAmountFirstChange = (amountFirst: number): void => {
         if (ratesList) {
-            setAmountSecond(calcRate(amountFirst, ratesList[currencySecond], ratesList[currencytFirst]))
+            setAmountSecond(calcRate(amountFirst, ratesList[currencySecond], ratesList[currencyFirst]))
         }
         setAmountFirst(amountFirst)
     }
 
-    const handleCurrencyFirstChange = (currencytFirst: string): void => {
+    const handleCurrencyFirstChange = (currencyFirst: string): void => {
         if (ratesList) {
-            setAmountSecond(calcRate(amountFirst, ratesList[currencySecond], ratesList[currencytFirst]))
+            setAmountSecond(calcRate(amountFirst, ratesList[currencySecond], ratesList[currencyFirst]))
         }
-        setCurrencyFirst(currencytFirst);
+        setCurrencyFirst(currencyFirst);
     }
 
     const handleAmountSecondChange = (amountSecond: number): void => {
         if (ratesList) {
-            setAmountFirst(calcRate(amountSecond, ratesList[currencytFirst], ratesList[currencySecond]))
+            setAmountFirst(calcRate(amountSecond, ratesList[currencyFirst], ratesList[currencySecond]))
         }
         setAmountSecond(amountSecond)
     }
     
     const handleCurrencySecondChange = (currencySecond: string): void => {
         if (ratesList) {
-            setAmountFirst(calcRate(amountSecond, ratesList[currencytFirst], ratesList[currencySecond]))
+            setAmountFirst(calcRate(amountSecond, ratesList[currencyFirst], ratesList[currencySecond]))
         }
         setCurrencySecond(currencySecond);
     }
@@ -53,7 +55,7 @@ export const Converter = () => {
             <CurrencyInput
                 currencies={currenciesArray}
                 amount={amountFirst}
-                currencySymbol={currencytFirst}
+                currencySymbol={currencyFirst}
                 onAmountChange={handleAmountFirstChange}
                 onCurrencyChange={handleCurrencyFirstChange}
             />
