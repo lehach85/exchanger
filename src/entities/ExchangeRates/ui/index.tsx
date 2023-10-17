@@ -1,9 +1,12 @@
 import {currencies, currenciesArray} from "@/shared/config";
 import './styles.css'
 import {useRatesData} from "@/shared/hooks/useRatesData"
+import React from "react";
+import {TExchangeRates} from "@/entities/ExchangeRates/model/types";
 
-export const ExchangeRates = () => {
-    const [ratesData] = useRatesData('RUB', currenciesArray);
+export const ExchangeRates:React.FC<TExchangeRates> = ({initialCurrency = 'RUB'}) => {
+    // TODO: show modal window by click on currency with general currency info and chart
+    const [ratesData] = useRatesData(initialCurrency, currenciesArray);
 
     return (
         <div className="table exchange-rates-table">

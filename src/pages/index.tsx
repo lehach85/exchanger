@@ -1,4 +1,4 @@
-import React, {FC, lazy} from "react";
+import React, {lazy} from "react";
 
 import {ROUTE_CONSTANTS} from "@/shared/config";
 import {Route, Routes, BrowserRouter, Navigate} from "react-router-dom";
@@ -7,7 +7,7 @@ const HomePage = lazy(() => import("./HomePage"))
 const ConverterPage = lazy(() => import("./ConverterPage"))
 const RatesChartPage = lazy(() => import("./RatesChartPage"));
 
-export const Router: FC = () => (
+export const Router = () => (
     <BrowserRouter>
         <Routes>
             <Route path={ROUTE_CONSTANTS.HOME} element={<Layout/>}>
